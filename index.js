@@ -39,3 +39,7 @@ app.use((req, res, next) => {
 app.listen(3000, () => {
     console.log('正在监听3000端口')
 })
+
+// todo
+// curl 发送post请求， 后端处理
+// express 编程模型图
