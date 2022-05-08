@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "scripts": {
+    "start": "node-dev index.js"
+  },
+  "name": "Express_Ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/baozoudashijian/Express_Ts.git",
+  "author": "Roger Zhang <1787009521@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "node-dev": "^7.4.3"
+  }
+}
