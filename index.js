@@ -1,11 +1,8 @@
 const express = require('express')
-
+const { setEncoding } = require('./middleware/encoding')
 const app = express()
 
-app.use((req, res, next) => {
-    res.set({ 'content-type': 'application/json; charset=utf-8' })
-    next()
-})
+app.use(setEncoding('utf-8'))
 
 app.use((req, res, next) => {
     if(req.url === '/' && req.method === 'GET') {
