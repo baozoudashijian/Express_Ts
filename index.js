@@ -4,10 +4,15 @@ const app = express()
 
 app.use((req, res, next) => {
     console.log(req.url)
-    res.write('hi')
-    res.end()
+    res.write('hello')
+    next()
     // res.end()
     // res.send()
+})
+
+app.use((req, res, next) => {
+    res.write(' world')
+    res.end()
 })
 
 app.listen(3000, () => {
