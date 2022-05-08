@@ -1,12 +1,18 @@
 const express = require('express')
 const { setEncoding } = require('./middleware/encoding')
+const { setPrefix } = require('./middleware/prefix')
 const app = express()
 
+// 设置编码中间件
 app.use(setEncoding('utf-8'))
+
+// 添加prefix中间件
+app.use(setPrefix('[RNG] '))
 
 app.use((req, res, next) => {
     if(req.url === '/' && req.method === 'GET') {
-        res.send('hello /')
+        res.write('hello /')
+        res.end()
     } else {
         res.write('hello') // 其中write是流的方式。
         next()
