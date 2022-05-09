@@ -9,6 +9,9 @@ app.use(setEncoding('utf-8'))
 // 添加prefix中间件
 app.use(setPrefix('[RNG] '))
 
+// 如果有json数据会处理到body
+app.use(express.json())
+
 app.use((req, res, next) => {
     if(req.url === '/' && req.method === 'GET') {
         res.write('hello /')
@@ -25,6 +28,19 @@ app.use((req, res, next) => {
     if(req.url === '/hello' && req.method === 'GET') {
         res.write(' world') // 其中write是流的方式。
         res.end()
+    } else {
+        next()
+    }
+})
+
+app.use((req, res, next) => {
+    if(req.url == '/' && req.method == 'POST') {
+        console.log(req.body)
+        res.write(' post')
+        res.end()
+        // req.on('data', (chunk) => {
+        //     console.log(chunk.toString())
+        // })
     } else {
         next()
     }
